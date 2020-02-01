@@ -1,0 +1,342 @@
+#device-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#processor-modal-title Add Device
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          label IMEI Number
+          .form-input
+            input.form-control(type='hidden', id='device_id')
+            input.form-control(type='number', placeholder='IMEI Number', id='device_imei_no' required)
+
+          label Sim Number   
+          .form-input
+            input.form-control(type='number', placeholder='Sim Number', id='device_sim_no', required)
+ 
+        .modal-footer.justify-content-between
+          button.btn.btn-default(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='button', id="add_device_button") Save changes
+
+
+#account-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#account-modal-title Add Account
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') 
+      .modal-body
+        form
+          .row
+            .col-md-12
+              label Account Name
+              .form-group
+                input.form-control(type='hidden', id='account_id')
+                input.form-control(type='text', placeholder='Account Name', id='account_name' required)
+          .row
+            .col-md-6
+              label Street      
+              .form-group
+                input.form-control(type='text', placeholder='Street', id='account_street', required)
+            .col-md-6
+              label City      
+              .form-group
+                input.form-control(type='text', placeholder='City', id='account_city', required)
+          .row
+            .col-md-6
+              label State     
+              .form-group
+                input.form-control(type='text', placeholder='State', id='account_state', required)
+            .col-md-6
+              label Zip       
+              .form-group
+                input.form-control(type='number', placeholder='Zip', id='account_zip', required)
+  
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', id="add_account_button") Save changes
+
+#customer-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#customer-modal-title Add Customer
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          label Customer Name
+          .form-group
+            input.form-control(type='hidden', id='customer_id')
+            input.form-control(type='text', placeholder='Customer Name', id='customer_name' required)
+          .row
+            .col-md-6
+              label Street      
+              .form-group
+                input.form-control(type='text', placeholder='Street', id='customer_street', required)
+            .col-md-6
+              label City      
+              .form-group
+                input.form-control(type='text', placeholder='City', id='customer_city', required)
+          .row
+            .col-md-6
+              label State     
+              .form-group
+                input.form-control(type='text', placeholder='State', id='customer_state', required)
+            .col-md-6
+              label Zip       
+              .form-group
+                input.form-control(type='number', placeholder='Zip', id='customer_zip', required)
+ 
+        .modal-footer.justify-content-between
+          button.btn.btn-default(type='button', data-dismiss='modal') Close
+          button.btn.btn-primary(type='button', id="add_customer_button") Save changes  
+
+#campaign-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#campaign-modal-title Add Campaign
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') 
+      .modal-body
+        form
+          label Campaign Name
+          .form-group.mb-3
+            input.form-control(type='hidden', id='campaign_id')
+            input.form-control(type='text', placeholder='Campaign Name', id='campaign_name' required)
+
+          .row
+            .col-6        
+              label Total Assets
+              .form-group.mb-3
+                input.form-control(type='number', placeholder='Total Assets', id='campaign_total_assets', required)
+            
+            .col-6  
+              label Total Devices    
+              .form-group.mb-3
+                input.form-control(type='number', placeholder='Total Devices', id='campaign_total_devices', required)
+
+          .row
+            .col-6       
+              label Start Date    
+              .form-group.mb-3
+                input.form-control(type='date', placeholder='Start Date', id='campaign_start_date', required)
+            .col-6     
+              label End Date    
+              .form-group.mb-3
+                input.form-control(type='date', placeholder='End Date', id='campaign_end_date', required)
+
+          label Subscription
+          .form-group.mb-3
+            select.custom-select#campaign_subscription_selection_box
+              option(value="12_months") 12 Months
+              option(value="24_months") 24 Months
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', id="add_campaign_button") Save changes         
+
+
+#location-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#location-modal-title Location Setup
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          .row
+            .col-md-7
+              label Location Name    
+              .form-group
+                input.form-control(type='text', placeholder='Name', id='location_name', required)
+              
+            .col-md-5
+              label Type
+              .form-group
+                input.form-control(type='hidden', id='location_id' required)
+                select.custom-select#location_type_selection_box
+                  option(value="factory") Factory
+                  option(value="warehouse") Warehouse
+                  option(value="distribution_center") Distribution Center
+                  option(value="retail_store") Retail store
+          .row
+            .col-md-7
+              label Street Name
+              .form-group
+                input.form-control(type='text', placeholder='Street', id='location_street', required)
+            .col-md-5
+              label City Name   
+              .form-group
+                input.form-control(type='text', placeholder='City', id='location_city', required)
+          .row
+            .col-md-6
+              label State Name    
+              .form-group
+                input.form-control(type='text', placeholder='State', id='location_state', required)   
+            .col-md-6
+              label Zip Code     
+              .form-group
+                input.form-control(type='text', placeholder='Zip', id='location_zip', required)
+               
+          .row
+            .col-md-6
+              .form-group
+                  .custom-control.custom-checkbox
+                    input#geofence_box.custom-control-input(type='checkbox', value='geofence_enable')
+                    label.custom-control-label(for='geofence_box') Geofence Enable
+            .col-md-6
+              .form-group
+                .custom-control.custom-checkbox
+                  input#final_dest_box.custom-control-input(type='checkbox', value='final_dest')
+                  label.custom-control-label(for='final_dest_box') Final Destination
+  
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', id="add_location_button") Save changes
+
+#locationcsv-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#locationcsv-modal-title Add Locations
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          label Upload Bulk Location List
+          h3 Comming Soon
+          //- .custom-file
+          //-   input#customFile.custom-file-input(type='file')
+          //-   label.custom-file-label(for='customFile') Choose Csv file
+
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        //button.btn.btn-primary(type='button', id="add_reps_button") Save changes
+
+#reps-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#reps-modal-title Add Representative
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          label Name
+          .form-group
+            input.form-control(type='hidden', id='reps_id')
+            input.form-control(type='text', placeholder='Name', id='reps_name' required)
+
+          label Email
+          .form-group
+            input.form-control(type='email', placeholder='Email', id='reps_email', required)
+  
+          label Phone Number     
+          .form-group
+            input.form-control(type='text', placeholder='Phone Number', id='reps_phone_no', required)
+
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', id="add_reps_button") Save changes
+
+#repscsv-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#repscsv-modal-title Add Recepients
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          label Upload Bulk Recepient List
+          h3 Comming Soon
+          //- .custom-file
+          //-   input#customFile.custom-file-input(type='file')
+          //-   label.custom-file-label(for='customFile') Choose Csv file
+
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        //button.btn.btn-primary(type='button', id="add_reps_button") Save changes
+
+#asset_details-modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title#asset_details-modal-title Manage Asset Details
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        form
+          .row
+            .col-md-12
+              label Asset Name      
+              .form-group
+                input.form-control(type='hidden', id='asset_details_id')
+                input.form-control(type='text', placeholder='Name', id='name' required)
+
+              
+          .row
+            .col-md-4
+              label Total Assets
+              .form-group
+                input.form-control(type='number', placeholder='Total Assets', id='total_assets', required)
+            .col-md-4
+              label Asset Height (ft)    
+              .form-group
+                input.form-control(type='number', placeholder='Height (ft)', id='height' required)
+            .col-md-4
+              label Asset Width (ft)     
+              .form-group
+                input.form-control(type='number', placeholder='Width (ft)', id='width' required)
+          .row
+            .col-md-6
+              label Manufacturing Date     
+              .form-group
+                input.form-control(type='date', placeholder='Manufacturing Date', id='mfg_date' required)
+
+            .col-md-6
+              label Shipping Date     
+              .form-group
+                input.form-control(type='date',placeholder='shipping Date', id='est_shipping_date' required)
+          .row
+            .col-md-6
+              label Channel
+              .form-group
+                input.form-control(type='text', placeholder='Channel', id='channel' required)
+
+            .col-md-6 
+              label Program     
+              .form-group
+                input.form-control(type='text', placeholder='Program', id='program' required)
+          .row
+            .col-md-6
+              label Promotion     
+              .form-group
+                input.form-control(type='text', placeholder='Promotion', id='promotion' required)
+            .col-md-6  
+              label Merchandise Type     
+              .form-group
+                input.form-control(type='text', placeholder='Merchandise Type', id='merchandise_type' required)
+                 
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button', id="add_assets_details_button") Save changes   
+
+#print_asset_allocation-modal.modal.fade
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        h4.modal-title#repscsv-modal-title Asset Tag Print Example
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        img(width="100%", src="/dist/img/asset_example.jpg")
+
+      .modal-footer.justify-content-between
+        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        //button.btn.btn-primary(type='button', id="add_reps_button") Save changes

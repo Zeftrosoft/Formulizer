@@ -1,0 +1,25 @@
+extends layouts/layout
+
+block content
+  // Main content
+  .content
+    .container-fluid
+      .row
+        .col-md-12
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Customer
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick= "addCustomer(null)")
+                    .fa.fa-plus 
+                      | Add Customer
+            .card-body
+              table#customerTable.table.table-bordered.table-striped
+            
+
+block append scripts
+    script(src='/dist/js/pages/customer.js')
+
+    script.
+        $(function () {
+            getCustomerData()
+        });

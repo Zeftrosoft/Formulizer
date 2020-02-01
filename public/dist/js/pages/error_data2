@@ -1,0 +1,77 @@
+
+Data received from client: MT;5;866425036417345;R2;191218202451+260,44961,7126,310+4+3614+234
+Error While Executing Device Loc Save Procedure
+Error [ValidationError]: GeoLocation validation failed: min: Cast to Number failed for value "1," at path "min", month: Cast to Number failed for value "0," at path "month"
+    at ValidationError.inspect (C:\DisplayAware\node_modules\mongoose\lib\error\validation.js:61:24)
+    at formatValue (internal/util/inspect.js:563:31)
+    at inspect (internal/util/inspect.js:221:10)
+    at formatWithOptions (internal/util/inspect.js:1693:40)
+    at Object.Console.<computed> (internal/console/constructor.js:272:10)
+    at Object.log (internal/console/constructor.js:282:61)
+    at C:\DisplayAware\device_server.js:120:21
+    at processTicksAndRejections (internal/process/task_queues.js:93:5) {
+  errors: {
+    min: MongooseError [CastError]: Cast to Number failed for value "1," at path "min"
+        at new CastError (C:\DisplayAware\node_modules\mongoose\lib\error\cast.js:29:11)
+        at model.$set (C:\DisplayAware\node_modules\mongoose\lib\document.js:1176:9)
+        at model._handleIndex (C:\DisplayAware\node_modules\mongoose\lib\document.js:930:14)
+        at model.$set (C:\DisplayAware\node_modules\mongoose\lib\document.js:874:22)
+        at model.Document (C:\DisplayAware\node_modules\mongoose\lib\document.js:136:12)
+        at model.Model (C:\DisplayAware\node_modules\mongoose\lib\model.js:93:12)
+        at new model (C:\DisplayAware\node_modules\mongoose\lib\model.js:4420:15)
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3018:22
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3054:7
+        at Array.forEach (<anonymous>)
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3053:15
+        at C:\DisplayAware\node_modules\mongoose\lib\utils.js:271:5
+        at new Promise (<anonymous>)
+        at Object.promiseOrCallback (C:\DisplayAware\node_modules\mongoose\lib\utils.js:270:10)
+        at Function.create (C:\DisplayAware\node_modules\mongoose\lib\model.js:2989:16)
+        at Socket.<anonymous> (C:\DisplayAware\device_server.js:51:23)
+        at Socket.emit (events.js:210:5)
+        at addChunk (_stream_readable.js:309:12)
+        at readableAddChunk (_stream_readable.js:290:11)
+        at Socket.Readable.push (_stream_readable.js:224:10)
+        at TCP.onStreamRead (internal/stream_base_commons.js:182:23) {
+      message: 'Cast to Number failed for value "1," at path "min"',
+      name: 'CastError',
+      stringValue: '"1,"',
+      kind: 'Number',
+      value: '1,',
+      path: 'min',
+      reason: [MongooseError]
+    },
+    month: MongooseError [CastError]: Cast to Number failed for value "0," at path "month"
+        at new CastError (C:\DisplayAware\node_modules\mongoose\lib\error\cast.js:29:11)
+        at model.$set (C:\DisplayAware\node_modules\mongoose\lib\document.js:1176:9)
+        at model._handleIndex (C:\DisplayAware\node_modules\mongoose\lib\document.js:930:14)
+        at model.$set (C:\DisplayAware\node_modules\mongoose\lib\document.js:874:22)
+        at model.Document (C:\DisplayAware\node_modules\mongoose\lib\document.js:136:12)
+        at model.Model (C:\DisplayAware\node_modules\mongoose\lib\model.js:93:12)
+        at new model (C:\DisplayAware\node_modules\mongoose\lib\model.js:4420:15)
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3018:22
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3054:7
+        at Array.forEach (<anonymous>)
+        at C:\DisplayAware\node_modules\mongoose\lib\model.js:3053:15
+        at C:\DisplayAware\node_modules\mongoose\lib\utils.js:271:5
+        at new Promise (<anonymous>)
+        at Object.promiseOrCallback (C:\DisplayAware\node_modules\mongoose\lib\utils.js:270:10)
+        at Function.create (C:\DisplayAware\node_modules\mongoose\lib\model.js:2989:16)
+        at Socket.<anonymous> (C:\DisplayAware\device_server.js:51:23)
+        at Socket.emit (events.js:210:5)
+        at addChunk (_stream_readable.js:309:12)
+        at readableAddChunk (_stream_readable.js:290:11)
+        at Socket.Readable.push (_stream_readable.js:224:10)
+        at TCP.onStreamRead (internal/stream_base_commons.js:182:23) {
+      message: 'Cast to Number failed for value "0," at path "month"',
+      name: 'CastError',
+      stringValue: '"0,"',
+      kind: 'Number',
+      value: '0,',
+      path: 'month',
+      reason: [MongooseError]
+    }
+  },
+  _message: 'GeoLocation validation failed',
+  name: 'ValidationError'
+}

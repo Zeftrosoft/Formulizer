@@ -1,0 +1,33 @@
+extends layouts/layout
+
+block content
+  // Main content
+  .content
+    .container-fluid
+      .row
+        .col-md-12
+          .card.card-primary.card-outline
+            input(type="hidden", value=cid, id="cid")
+            label.h1(style='color:blue') Customer Details
+            .row
+              .col-md-6
+                label.h4(style='color:black') Name:
+                  span(style='color:red; padding:5px') #{name}
+              .col-md-6
+                label.h4(style='color:black') Phone No: 
+                 span(style='color:red; padding:5px') #{phone}
+              .col-md-12
+                label.h4(style='color:black') Note: 
+                 span(style='color:red; padding:5px') #{note}
+            .card-body
+              table#shadeTable.table.table-bordered.table-striped
+
+block append scripts
+    script(src='/dist/js/pages/customerView.js')
+
+    script.
+        $(function () {
+            getCustomerData()
+            getAllShades()
+        });
+

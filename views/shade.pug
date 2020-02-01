@@ -1,0 +1,25 @@
+extends layouts/layout
+
+block content
+  // Main content
+  .content
+    .container-fluid
+      .row
+        .col-md-12
+          .card.card-primary.card-outline
+            .card-header
+              h5.m-0 Shade
+                button.btn.btn-sm.btn-primary(style='float: right;' onclick= "addShade(null)")
+                    .fa.fa-plus 
+                      | Add Shade
+            .card-body
+              table#shadeTable.table.table-bordered.table-striped
+            
+
+block append scripts
+    script(src='/dist/js/pages/shade.js')
+
+    script.
+        $(function () {
+            getAllShades()
+        });

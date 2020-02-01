@@ -1,0 +1,318 @@
+doctype html
+//
+  This is a starter template page. Use this page to start your new project from
+  scratch. This page gets rid of all links and provides the needed markup only.
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    block styles
+      title #{title}
+      // Font Awesome Icons
+      link(rel='stylesheet', href='/plugins/fontawesome-free/css/all.min.css')
+      link(rel='stylesheet', href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+      link(rel='stylesheet', href='/plugins/datatables-bs4/css/dataTables.bootstrap4.css')
+      link(rel='stylesheet', href='/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')
+      link(rel='stylesheet', href='/plugins/icheck-bootstrap/icheck-bootstrap.min.css')
+      link(rel='stylesheet', href='/plugins/select2/css/select2.min.css')
+      // Theme style
+      link(rel='stylesheet', href='/dist/css/adminlte.min.css')
+      // Google Font: Source Sans Pro
+      link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700', rel='stylesheet')
+      style.
+        .nav-tabs .nav-link {
+          font-weight: 600
+        }
+  body.hold-transition.sidebar-mini.sidebar-collapse
+    .wrapper
+      block topnav
+        nav.main-header.navbar.navbar-expand.navbar-white.navbar-light
+          // Left navbar links
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link(data-widget='pushmenu', href='#')
+                i.fas.fa-bars
+            //- li.nav-item.d-none.d-sm-inline-block
+            //-   a.nav-link(href='index3.html') Home
+            //- li.nav-item.d-none.d-sm-inline-block
+            //-   a.nav-link(href='#') Contact
+          //- // SEARCH FORM
+          //- form.form-inline.ml-3
+          //-   .input-group.input-group-sm
+          //-     input.form-control.form-control-navbar(type='search', placeholder='Search', aria-label='Search')
+          //-     .input-group-append
+          //-       button.btn.btn-navbar(type='submit')
+          //-         i.fas.fa-search
+          // Right navbar links
+          ul.navbar-nav.ml-auto
+            // Messages Dropdown Menu
+          
+            li.nav-item.dropdown
+              a.nav-link(data-toggle='dropdown', href='#')
+                i.far.fa-person
+                span.badge.badge-danger.navbar-badge 3
+              .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
+                a.dropdown-item(href='#')
+                  // Message Start
+                  .media
+                    img.img-size-50.mr-3.img-circle(src='dist/img/user1-128x128.jpg', alt='User Avatar')
+                    .media-body
+                      h3.dropdown-item-title
+                        | Brad Diesel
+                        span.float-right.text-sm.text-danger
+                          i.fas.fa-star
+                      p.text-sm Call me whenever you can...
+                      p.text-sm.text-muted
+                        i.far.fa-clock.mr-1
+                        |  4 Hours Ago
+                  // Message End
+                .dropdown-divider
+            
+                a.dropdown-item(href='#')
+                  // Message Start
+                  .media
+                    img.img-size-50.img-circle.mr-3(src='dist/img/user8-128x128.jpg', alt='User Avatar')
+                    .media-body
+                      h3.dropdown-item-title
+                        | John Pierce
+                        span.float-right.text-sm.text-muted
+                          i.fas.fa-star
+                      p.text-sm I got your message bro
+                      p.text-sm.text-muted
+                        i.far.fa-clock.mr-1
+                        |  4 Hours Ago
+                  // Message End
+                .dropdown-divider
+                a.dropdown-item(href='#')
+                  // Message Start
+                  .media
+                    img.img-size-50.img-circle.mr-3(src='dist/img/user3-128x128.jpg', alt='User Avatar')
+                    .media-body
+                      h3.dropdown-item-title
+                        | Nora Silvester
+                        span.float-right.text-sm.text-warning
+                          i.fas.fa-star
+                      p.text-sm The subject goes here
+                      p.text-sm.text-muted
+                        i.far.fa-clock.mr-1
+                        |  4 Hours Ago
+                  // Message End
+                .dropdown-divider
+                a.dropdown-item.dropdown-footer(href='#') See All Messages
+            // Notifications Dropdown Menu
+            li.nav-item.dropdown
+              a.nav-link(data-toggle='dropdown', href='#')
+                i.far.fa-bell
+                span.badge.badge-warning.navbar-badge 15
+              .dropdown-menu.dropdown-menu-lg.dropdown-menu-right
+                span.dropdown-header 15 Notifications
+                .dropdown-divider
+                a.dropdown-item(href='#')
+                  i.fas.fa-envelope.mr-2
+                  |  4 new messages
+                  span.float-right.text-muted.text-sm 3 mins
+                .dropdown-divider
+                a.dropdown-item(href='#')
+                  i.fas.fa-users.mr-2
+                  |  8 friend requests
+                  span.float-right.text-muted.text-sm 12 hours
+                .dropdown-divider
+                a.dropdown-item(href='#')
+                  i.fas.fa-file.mr-2
+                  |  3 new reports
+                  span.float-right.text-muted.text-sm 2 days
+                .dropdown-divider
+                a.dropdown-item.dropdown-footer(href='#') See All Notifications
+            li.nav-item
+              a.nav-link(data-widget='control-sidebar', data-slide='true', href='#')
+                i.fas.fa-th-large
+      
+      // Main Sidebar Container
+      include ../partials/sidebar
+
+        
+      // Content Wrapper. Contains page content
+      .content-wrapper
+        // Content Header (Page header)
+        block contentheader
+          .content-header
+            .container-fluid
+              .row.mb-2
+                .col-sm-12
+                  h3.m-0.text-dark #{pageHeaderMain}
+                // /.col
+                //- .col-sm-6
+                //-   ol.breadcrumb.float-sm-right
+                //-     li.breadcrumb-item
+                //-       a(href='#') Home
+                //-     li.breadcrumb-item.active Starter Page
+                // /.col
+                // /.row
+                // /.container-fluid
+                // /.content-header
+        block content
+
+        // Control Sidebar
+        block controlsidebar
+          aside.control-sidebar.control-sidebar-dark
+            // Control sidebar content goes here
+            .p-3
+              h5 Title
+              p Sidebar content
+          // /.control-sidebar
+
+        // Main Footer
+      block footer
+        footer.main-footer
+          // To the right
+          .float-right.d-none.d-sm-inline
+
+          // Default to the left
+          strong
+            | Copyright © 2014-2019 
+            a(href='https://adminlte.io') AdminLTE.io
+            | .
+          |  All rights reserved.
+
+    #customer-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h4.modal-title#customer-modal-title Add Customer
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form
+            label Customer Name
+            .input-group.mb-3
+              input.form-control(type='hidden', id='customer_id')
+              input.form-control(type='text', placeholder='Customer Name', id='customer_name' required)
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-cog
+            label Phone No    
+            .input-group.mb-3
+              input.form-control(type='text', placeholder='Phone No', id='customer_phoneNo', required)
+              .input-group-append
+                .input-group-text
+                  span.fas.fa-microchip
+            label Note    
+            .input-group.mb-3
+             textarea.form-control(type='text', placeholder='Note', id='customer_note', required)     
+          .modal-footer.justify-content-between
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-primary(type='button', id="add_customer_button") Save changes
+
+
+            //Shade
+
+    #shade-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h4.modal-title#shade-modal-title Add Shade
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            form
+              .row
+                .col-md-6
+                  .form-group.mb-3
+                    label Shade Name
+                    input.form-control(type='hidden', id='shade_id')
+                    input.form-control(type='text', placeholder='Shade Name', id='shade_name' required)
+                .col-md-6  
+                  .form-group.mb-3
+                    label Customer Name
+                    select.form-control#customer_id_selection_box
+              .row
+                .col-md-6
+                  .form-group.mb-3  
+                    label PageNo    
+                    input.form-control(type='text', placeholder='PageNo', id='shade_pageNo', required) 
+                .col-md-6  
+                  .form-group.mb-3
+                    label Book Name    
+                    input.form-control(type='text', placeholder='Book Name', id='shade_bookName', required)
+              .row  
+                .col-md-12
+                  .form-group.mb-3    
+                    label HexCode    
+                    input.form-control(type='text', placeholder='HexCode', id='shade_hexCode', required)
+              .row  
+                .col-md-12  
+                  .form-group.mb-3          
+                    label Note    
+                    textarea.form-control(type='text', placeholder='Note', id='shade_note', required)
+              .row
+                .col-md-12.shade_formulaid_container
+                  .row
+                    label Formula
+                    .col-md-12
+                      input.form-control(type='text', placeholder='Tinter', id='shade_tinter', required)
+                    .col-md-12
+                      input.form-control(type='number', placeholder='Quantity', id='shade_qty', required)
+                    .col-md-1
+                      button.btn.btn-success.btn-sm(onClick='addFormulaClicked()',type="button") 
+                        i.fas.fa-plus
+                    
+              .row
+                .col-md-12.shade_formulaid_container
+                  .table-responsive
+                    table.table.no-margin
+                      thead
+                        tr
+                          th X
+                          th tinter
+                          th quantity
+                      tbody#shade_formularow_container
+
+              .row  
+                .col-md-12
+                  .form-group.mb-3        
+                    label Total Qty    
+                    input.form-control(type='number', placeholder='Total Qty', id='shade_totalQty', required)
+                          
+                  .modal-footer.justify-content-between
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+                    button.btn.btn-primary(type='button', id="add_shade_button") Save changes       
+    #formula-modal.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            h4.modal-title#shade-modal-title View Formula
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') ×
+          .modal-body
+            .form-group
+              label ingrms
+              input(type='text', placeholder=' 1000 g')
+              button.btn.btn-info.btn-flat(type='button', onClick='clickGo()') Go!
+            .row
+              .col-md-12
+                .table-responsive
+                  table.table.no-margin
+                    thead
+                      tr
+                        th tinter
+                        th quantity
+                    tbody#shade_formularow_view_container
+        include ../partials/modals
+
+      block scripts
+        // REQUIRED SCRIPTS
+        // jQuery
+        script(src='/plugins/jquery/jquery.min.js')
+        // Bootstrap 4
+        script(src='/plugins/bootstrap/js/bootstrap.bundle.min.js')
+        script(src='/plugins/datatables/jquery.dataTables.js')
+        script(src='/plugins/datatables-bs4/js/dataTables.bootstrap4.js')
+        script(src='/plugins/sweetalert2/sweetalert2.min.js')
+        script(src='/plugins/select2/js/select2.min.js')
+        script(src='/plugins/luxon/luxon.min.js')
+
+        // AdminLTE App
+        script(src='/dist/js/adminlte.min.js')
+        script(src='/dist/js/utils.js')
+        
