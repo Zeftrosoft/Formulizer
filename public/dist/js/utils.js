@@ -1,7 +1,7 @@
 var local = 'http://localhost:12345/api'
 var online = 'http://52.8.236.185:12345/api'
 var DateTime = luxon.DateTime;
-var used_host = local;
+var used_host = online;
 var today = new Date 
 
 const Toast = Swal.mixin({
