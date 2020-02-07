@@ -1,5 +1,5 @@
-var local = 'https://formulizer.herokuapp.com/api'
-var online = 'http://52.8.236.185:12345/api'
+var local = 'http://localhost:12345/api'
+var online = 'https://formulizer.herokuapp.com/api'
 var DateTime = luxon.DateTime;
 var used_host = online;
 var today = new Date 
