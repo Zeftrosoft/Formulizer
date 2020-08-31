@@ -66,7 +66,7 @@ mongoose.connection.on('error', (err) => {
  * Express configuration.
  */
 app.set('host', process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0');
-app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 12345);
+app.set('port', process.env.PORT  || 12345);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.use(expressStatusMonitor());
@@ -91,6 +91,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+app.use(function(req, res, next) {
+  //res.header("Access-Control-Allow-Origin", "http://localhost:"+config.client);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,HEAD");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  next();
+});
 // app.use((req, res, next) => {
 //   if (req.path === '/api/upload') {
 //     // Multer multipart/form-data handling needs to occur before the Lusca CSRF check.
@@ -147,11 +154,12 @@ app.get('/customer/:_id', customerController.viewById)
 app.get('/api/customer/all', customerController.getAllCustomers)
 app.get('/api/customer/id/:_id', customerController.getCustomerById)
 app.post('/api/customer', customerController.upsertCustomer)
+app.get('/api/customer/search/name/:_Term', customerController.searchCustomers)
 
 app.get('/shade', shadeController.index)
 app.get('/api/shade/all', shadeController.getAllShades)
 app.get('/api/shade/id/:_id', shadeController.getShadeById)
-app.get('/api/shade/cId/:_cId', shadeController.getShadeByCustomerId)
+app.get('/api/shade/customer/:_cId', shadeController.getShadeByCustomerId)
 app.post('/api/shade', shadeController.upsertShade)
 
 

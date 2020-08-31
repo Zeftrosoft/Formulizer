@@ -54,18 +54,19 @@ module.exports.getAllCustomers = (req,res) => {
 }
 
 module.exports.getCustomerById = (req,res) => {
-    var customerId = req.params['_id']
+    var cId = req.params['_id']
+    console.log(cId)
     var retObj = {
         status: false,
         message: "Err Querying database while fetching customers, Try again", 
         deatails: []
     };
-    Customer.findById(customerId, {_v:0},(err,customer)=>{
+    Customer.findById(cId, {_v:0},(err,customer)=>{
         if(err){
             res.json(retObj)
             }else{
                 retObj.status = true;
-                retObj.message = "Found All Customers";
+                retObj.message = "Found Customer by Id";
                 retObj.details = customer;
                 res.json(retObj)
             }
@@ -102,3 +103,30 @@ module.exports.upsertCustomer = (req,res) => {
             }
     });
 }
+
+module.exports.searchCustomers = (req, res, next) => {
+    var term = req.params['_Term']
+    var retObj = {
+        message: 'Error Getting Customers',
+        status: false,
+        details: []
+    }
+
+    Customer.find({
+        // role: 'customer',
+        $or: [
+            { name: { "$regex": term, "$options": "i" } }
+        ]
+    }, { }, (err, customer) => {
+        if (err) {
+            console.log(retObj.message, err)
+            return res.json(retObj);
+        } else {
+            retObj.message = 'Find customer ' + term
+            retObj.status = true
+            retObj.details = customer
+            return res.json(retObj);
+        }
+    })
+
+};

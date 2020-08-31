@@ -57,7 +57,7 @@ module.exports.getShadeById = (req,res) => {
     var retObj = {
         status: false,
         message: "Err Querying database while fetching shades, Try again", 
-        deatails: []
+        details: []
     };
     Shade.findById(shadeId, {_v:0},(err,shade)=>{
         if(err){
